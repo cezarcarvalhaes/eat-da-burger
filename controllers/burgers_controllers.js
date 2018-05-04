@@ -10,13 +10,11 @@ router.get("/", function(req, res) {
       var handlebarsObj = {
         burgers: data
       };
-      console.log(handlebarsObj);
       res.render("index", handlebarsObj);
     });
   });
   
   router.post("/api/burgers", function(req, res) {
-      console.log(req.body);
     burger.create(
       req.body, function(result) {
       // Send back the ID of the new burger
@@ -26,8 +24,6 @@ router.get("/", function(req, res) {
   
   router.put("/api/burgers/:id", function(req, res) {
     var key = {id: req.params.id};
-  
-    console.log("update id:", key);
   
     burger.update(
         req.body, key, function(result) {
